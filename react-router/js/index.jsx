@@ -37,6 +37,15 @@ var Settings = React.createClass({
 	}
 });
 
+var NotFound = React.createClass({
+	render: function () {
+		return (
+			  <Alert bsStyle='danger'>
+			    そのようなURLはございません。
+			  </Alert>
+		);
+	}
+});
 
 ////////////////////////////////////////////
 // React Route
@@ -94,6 +103,7 @@ var routes = (
 			<Route name="settings" handler={Settings}/>
 			<DefaultRoute handler={Dashboard}/>
 			<Redirect from="gotoSettings" to="settings" />
+			<NotFoundRoute handler={NotFound} />
 		</Route>
 );
 
