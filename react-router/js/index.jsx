@@ -17,9 +17,12 @@ var Dashboard = React.createClass({
 var Users = React.createClass({
 	render: function () {
 		return (
-			  <Alert bsStyle='warning'>
-			    ユーザ一覧
-			  </Alert>
+			<div>
+				<Alert bsStyle='warning'>
+				ユーザ一覧
+				</Alert>
+				<a href='index.html#/settings'>設定にリダイレクト</a>
+			</div>
 		);
 	}
 });
@@ -42,6 +45,7 @@ var Settings = React.createClass({
 var Route = ReactRouter.Route;
 var NotFoundRoute = ReactRouter.NotFoundRoute;
 var DefaultRoute = ReactRouter.DefaultRoute;
+var Redirect = ReactRouter.Redirect;
 var Link = ReactRouter.Link;
 var RouteHandler = ReactRouter.RouteHandler;
 
@@ -89,6 +93,7 @@ var routes = (
 			<Route name="users" handler={Users}/>
 			<Route name="settings" handler={Settings}/>
 			<DefaultRoute handler={Dashboard}/>
+			<Redirect from="gotoSettings" to="settings" />
 		</Route>
 );
 
